@@ -2,6 +2,7 @@ import { Component } from "../core/core";
 import TodoItem from "./TodoItem";
 import completenessStore from "../store/completeness";
 import todoStore from "../store/todo";
+import completeness from "../utils/completeness";
 
 export default class TodoPlus extends Component {
   constructor() {
@@ -9,9 +10,6 @@ export default class TodoPlus extends Component {
       state: {
         todos: []
       }
-    })
-    todoStore.subscribe('todos', () => {
-      this.render()
     })
   }
 
@@ -25,24 +23,28 @@ export default class TodoPlus extends Component {
 
     const todoInput = this.el.querySelector(".todoInput")
     const addTodoBtn = this.el.querySelector(".addTodoBtn")
-    const todoId = this.state.todos.length + 1
-    
-    addTodoBtn.addEventListener("click", () => {
-      const newTodo = todoInput.value
-      
-      todoStore.state.todos.push({ id: todoId, todo: newTodo });
-      completenessStore.state.totalTodos += 1;
-      this.renderTodoList()
-    });
-  }
-
-  renderTodoList() {
     const todoList = this.el.querySelector(".todoList");
-    
-    todoList.innerHTML = "";
-    todoStore.state.todos.map((todo) => {
-      const todoItem = new TodoItem({ props: todo });
-      todoList.appendChild(todoItem.el);
-    })
+
+    addTodoBtn.addEventListener("click", () => {
+      if(todoInput.value) {
+        const newTodo = { 
+          id: todoStore.state.todos.length + 1, 
+          todo: todoInput.value, 
+          isChecked: false
+        }
+  
+        todoStore.state.todos.push(newTodo)
+        completenessStore.state.totalTodos += 1
+  
+        const todoItem = new TodoItem({ props: newTodo })
+        todoList.appendChild(todoItem.el)
+
+        completeness()
+
+        todoInput.value = "";
+      } else {
+        // alert('할 일을 입력하세요')
+      }
+    });  
   }
 }
