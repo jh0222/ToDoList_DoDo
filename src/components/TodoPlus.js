@@ -1,16 +1,46 @@
 import { Component } from "../core/core";
-import TodoItem from "./TodoItem";
-import completenessStore from "../store/completeness";
 import todoStore from "../store/todo";
 import completeness from "../utils/completeness";
+import { updateDateTodo } from "../utils/todoList";
 
-export default class TodoPlus extends Component {
+export default class TodoPlus extends Component {  
   constructor() {
-    super({
-      state: {
-        todos: []
-      }
+    super()
+    todoStore.subscribe('date', () => {
+      this.render()
     })
+  }
+
+  addTodo() {
+    const todoInput = this.el.querySelector(".todoInput")
+
+    if(todoInput.value) {
+      let maxId = 0
+      
+      if(todoStore.state.todos.length !== 0) {
+        const ids = todoStore.state.todos.map(todo => todo.id)
+        maxId = Math.max(...ids)
+      }
+
+      let date = todoStore.state.date
+
+      const newTodo = { 
+        id: maxId + 1, 
+        todo: todoInput.value,
+        todoDate: date,
+        isChecked: false
+      }
+
+      todoStore.state.todos.push(newTodo)
+      // completenessStore.state.totalTodos += 1
+
+      updateDateTodo(this.el)
+      completeness()
+
+      todoInput.value = "";
+    } else {
+      alert('할 일을 입력하세요')
+    }
   }
 
   render() {
@@ -23,28 +53,18 @@ export default class TodoPlus extends Component {
 
     const todoInput = this.el.querySelector(".todoInput")
     const addTodoBtn = this.el.querySelector(".addTodoBtn")
-    const todoList = this.el.querySelector(".todoList");
 
     addTodoBtn.addEventListener("click", () => {
-      if(todoInput.value) {
-        const newTodo = { 
-          id: todoStore.state.todos.length + 1, 
-          todo: todoInput.value, 
-          isChecked: false
-        }
-  
-        todoStore.state.todos.push(newTodo)
-        completenessStore.state.totalTodos += 1
-  
-        const todoItem = new TodoItem({ props: newTodo })
-        todoList.appendChild(todoItem.el)
+      this.addTodo();
+    })
 
-        completeness()
-
-        todoInput.value = "";
-      } else {
-        // alert('할 일을 입력하세요')
+    todoInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        this.addTodo();
       }
-    });  
+    })
+
+    updateDateTodo(this.el)
+    completeness()
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from "../core/core";
 import completenessStore from "../store/completeness";
-import todoStore from "../store/todo";
 
 export default class TodoCompleteness extends Component {
   constructor() {
