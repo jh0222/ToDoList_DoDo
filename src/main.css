@@ -182,7 +182,7 @@ header a.active {
   }
   .week-row {
     width: 230px;
-    height: 150px;
+    min-height: 150px;
     border: none;
   }
 }
@@ -286,8 +286,9 @@ header a.active {
     font-size: 8px; /* 폰트 크기 축소 */
   }
 
-  .day .todoList li input, .deleteTodo {
-    display: none; /* 폰트 크기 축소 */
+  .day .todoList li input {
+    font-size: 4px;
+    padding: 1px;
   }
 }
 
