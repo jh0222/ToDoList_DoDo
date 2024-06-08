@@ -4,8 +4,9 @@
   box-sizing: border-box;
 }
 html {
-  --color-primary: #a7a8ff71;
-  --color-hover: #8b73e2;
+  --color-primary: #644cbd;
+  --color-primary-dark: #7644b6;
+  --color-primary-light: #a7a8ff71;
   --color-area: #fcf6ff;
 }
 
@@ -19,30 +20,29 @@ body {
 .header-title {
   display: flex;
   justify-content: center;
-  color: var(--color-hover);
   font-size: 35px;
   font-weight: 600;
   padding: 10px 20px;
-  text-shadow: 3px 3px var(--color-primary);
+  text-shadow: 3px 3px var(--color-primary-light);
 }
 .header-menu {
   display: flex;
   justify-content: center;
-  color: var(--color-primary);
   font-size: 18px;
   padding: 10px 20px;
 }
 
 header a {
+  color: var(--color-primary-dark);
   text-decoration: none;
   margin-right: 10px;
   transition: box-shadow 0.3s;
 }
 header a:hover {
-  text-shadow: 0 0 5px var(--color-hover);
+  text-shadow: 0 0 5px var(--color-primary);
 }
 header a.active {
-  text-shadow: 0 0 5px var(--color-hover);
+  text-shadow: 0 0 5px var(--color-primary);
 }
 
 .container {
@@ -95,7 +95,7 @@ header a.active {
 .addTodoBtn {
   width: 30px;
   height: 30px;
-  background-color: var(--color-hover);
+  background-color: var(--color-primary);
   color: white;
   border: none;
   font-size: 30px;
@@ -104,7 +104,7 @@ header a.active {
   transition: box-shadow 0.1s;
 }
 .addTodoBtn:hover {
-  box-shadow: 0 0 5px var(--color-hover); /* hover 시 그림자 효과 추가 */
+  box-shadow: 0 0 5px var(--color-primary); /* primary 시 그림자 효과 추가 */
 }
 
 .todoList {
@@ -120,13 +120,13 @@ header a.active {
 .deleteTodo {
   cursor: pointer;
   float: right;
-  color: var(--color-hover);
+  color: var(--color-primary);
   font-weight: 600;
   margin-left: 5px;
   transition: color 0.1s;
 }
 .deleteTodo:hover {
-  color: var(--color-primary); /* 호버 시 링크 색상 변경 */
+  color: var(--color-primary-light); /* 호버 시 링크 색상 변경 */
 }
 
 .completed {
@@ -262,7 +262,7 @@ footer {
   padding: 30px 20px;
 }
 footer a {
-  color: var(--color-hover);
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s;
@@ -270,5 +270,5 @@ footer a {
   font-weight: 500;
 }
 footer a:hover {
-  color: var(--color-primary); /* 호버 시 링크 색상 변경 */
+  color: var(--color-primary-light); /* 호버 시 링크 색상 변경 */
 }
