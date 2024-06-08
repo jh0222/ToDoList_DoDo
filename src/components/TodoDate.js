@@ -10,12 +10,11 @@ export default class TodoDate extends Component {
   render() {
     const formattedDate = (todoStore.state.date.getMonth() + 1) + '/' + todoStore.state.date.getDate();
 
-    this.el.innerHTML = /* HTML */ `
-      <div>  
-        <a id='decrease-date'><</a>
-        ${formattedDate}
-        <a id='increase-date'>></a>
-      </div>
+    this.el.classList.add('date')
+    this.el.innerHTML = /* HTML */ `  
+      <a id='decrease-date'><</a>
+      <div>${formattedDate}</div>
+      <a id='increase-date'>></a>
     `
 
     this.el.querySelector('#decrease-date').addEventListener('click', e => {

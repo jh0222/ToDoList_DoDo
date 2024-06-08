@@ -17,6 +17,7 @@ export default class TodoItem extends Component {
   render() {
     this.el.innerHTML = /* HTML */ `
       <input 
+        class='todoCheckbox'
         type='checkbox' 
         name='todo' 
         key=${this.props.id} 

@@ -8,10 +8,12 @@ export default class Header extends Component {
   }
   render() {
     this.el.innerHTML = /* HTML */ `
-      <a href='#/'>d</a>
-      <a href='#/weekly'>w</a>
-      <a href='#/monthly'>m</a>
-      <div>Do Do</div>
+      <div class='header-title'>Do Do</div>
+      <div class='header-menu'>
+        <a href='#/'>Daily</a>
+        <a href='#/weekly'>Weekly</a>
+        <a href='#/monthly'>Monthly</a>
+      </div>
     `
   }
 }

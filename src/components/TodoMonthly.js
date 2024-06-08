@@ -17,17 +17,13 @@ export default class TodoMonthly extends Component {
 
     this.el.classList.add('monthly')
     this.el.innerHTML = /* HTML */ `
-      <div style='display: flex'>
+      <div class='date' style='display: flex'>
         <a id='decrease-month'><</a>
         <div class='monthly-day'></div>
         <a id='increase-month'>></a>
       </div>
 
-      
-      <div class="month">
-        
-        
-      </div>
+      <div class="month"></div>
     `
 
     this.el.querySelector('#decrease-month').addEventListener('click', e => {

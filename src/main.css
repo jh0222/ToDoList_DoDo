@@ -1,0 +1,217 @@
+html {
+  --color-white-50: rgba(255,255,255,.5);
+  --color-white-30: rgba(255,255,255,.3);
+  --color-white-20: rgba(255,255,255,.2);
+  --color-white-10: rgba(255,255,255,.1);
+  --color-white-5: rgba(255,255,255,.05);
+  --color-primary: #a7a8ff71;
+  --color-hover: #8b73e2;
+  --color-area: #1C212E;
+}
+body {
+  background-color: var(--color-black);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+.header-title {
+  display: flex;
+  justify-content: center;
+  color: var(--color-hover);
+  font-size: 35px;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-shadow: 3px 3px var(--color-primary);
+}
+.header-menu {
+  display: flex;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: 18px;
+  padding: 10px 20px;
+}
+header a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.date a {
+  cursor: pointer;
+}
+
+.date div {
+  margin: 0 10px 0 10px;
+}
+
+.todoDate {
+  min-height: 300px;
+}
+
+.addTodo {
+  display: flex;
+  align-items: center;
+}
+
+.todoInput {
+  width: 300px;
+  height: 30px;
+  margin-right: 10px; 
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.addTodoBtn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-hover);
+  color: white;
+  border: none;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.todoList {
+  list-style-type: none;
+  padding: 0 10;
+  font-size: 18px;
+}
+
+.todoText {
+  
+}
+
+.deleteTodo {
+   cursor: pointer;
+   float: right;
+   color: var(--color-hover);
+}
+
+.completed {
+  border-top: 1px solid #000;
+  width: 100px;
+}
+
+.completed h3 {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.week-table {
+  display: flex;
+  border: 1px solid #000;
+  border-radius: 15;
+  box-shadow: 5px 5px var(--color-area);
+}
+
+.week-row {
+  width: 150px;
+  padding: 10px 20px;
+  border-right: 1px solid #000;
+}
+
+.week-row h2 {
+  border-bottom: 1px solid #000;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.week-row:last-child {
+  border: none;
+}
+
+.week-day {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.month {
+  display: table;
+  border-radius: 15;
+  box-shadow: 5px 5px var(--color-area);
+}
+
+.month-table {
+  display: flex;
+  border-radius: 15px 15px 0 0;
+  border: 1px solid #000;
+}
+
+.month-row {
+  width: 150px;
+  height: 50px;
+  padding: 0;
+  border-right: 1px solid #000;
+  display: flex;
+  justify-content: center;
+}
+
+.month-row:last-child {
+  border-right: none;
+}
+
+.month-row h2 {
+  margin: 0;
+  align-content: center;
+}
+
+.week {
+  display: flex;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.week:nth-child(2) {
+  justify-content: flex-end;
+  /* border-left: 1px solid #000; */
+}
+
+.week:last-child {
+  border-radius: 0 0 15px 15px;
+}
+
+.day {
+  width: 150px;
+  min-height: 100px;
+  border-left: 1px solid #000;
+  /* border-right: 1px solid #000; */
+}
+
+.day h3 {
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+
+.week .day:first-child {
+  border-left: none;
+}
+
+.week:nth-child(2) .day:first-child {
+  border-left: 1px solid #000;
+}
+
+.week:last-child .day:last-child {
+  border-right: 1px solid #000;
+}

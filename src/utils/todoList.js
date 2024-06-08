@@ -42,7 +42,7 @@ export const updateWeeklyTodo = (element, n) => {
   daysOfWeek.forEach((date, index) => {
     const todoList = element.querySelector(`.todoList[key="${index}"]`);
     if (todoList) {
-      todoList.innerHTML = `${date.getMonth() + 1 + '/' + date.getDate()}`;
+      todoList.innerHTML = `<div class='week-day'>${date.getMonth() + 1 + '/' + date.getDate()}</div>`;
       todoStore.state.todos.forEach(todo => {
         if (todo.todoDate.getFullYear() === date.getFullYear() &&
             todo.todoDate.getMonth() === date.getMonth() &&
@@ -71,18 +71,19 @@ export const updateMonthlyTodo = (element, n) => {
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const daysOfMonth = Array.from({ length: daysInMonth }, (_, i) => new Date(currentYear, currentMonth, i + 1));
 
-  element.querySelector('.monthly-day').textContent = currentMonth + 1
+  // element.querySelector('.year').textContent = currentYear + '년'
+  element.querySelector('.monthly-day').textContent = currentYear + '년 ' + (currentMonth + 1) + '월'
 
   const monthContainer = element.querySelector('.month');
-  monthContainer.innerHTML = `
-    <div class='week' style='display: flex'>
-      <h2>SUN</h2>
-      <h2>MON</h2>
-      <h2>TUE</h2>
-      <h2>WED</h2>
-      <h2>THU</h2>
-      <h2>FRI</h2>
-      <h2>SAT</h2>
+  monthContainer.innerHTML = /* html */`
+    <div class='month-table'>
+      <div class='month-row'><h2>SUN</h2></div>
+      <div class='month-row'><h2>MON</h2></div>
+      <div class='month-row'><h2>TUE</h2></div>
+      <div class='month-row'><h2>WED</h2></div>
+      <div class='month-row'><h2>THU</h2></div>
+      <div class='month-row'><h2>FRI</h2></div>
+      <div class='month-row'><h2>SAT</h2></div>
     </div>
   `
 
@@ -91,18 +92,15 @@ export const updateMonthlyTodo = (element, n) => {
   let week = [];
   daysOfMonth.forEach((date, index) => {
     week.push(date);
-    console.log(date.getDate());
     if (date.getDay() === 6 || index === daysInMonth - 1) {
       weeks.push(week);
-      console.log(week);
       week = [];
     }
   });
-  
+ 
   weeks.forEach((week) => {
     const weekContainer = document.createElement('div');
     weekContainer.className = 'week';
-    weekContainer.style= 'display: flex'
     week.forEach((date) => {
       const dayContainer = document.createElement('div');
       dayContainer.className = 'day';

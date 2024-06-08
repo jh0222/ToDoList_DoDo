@@ -44,10 +44,12 @@ export default class TodoPlus extends Component {
   }
 
   render() {
-    this.el.classList.add('search')
+    this.el.classList.add('todoDate')
     this.el.innerHTML =  /* HTML */ `
-      <input type="text" class="todoInput" />
-      <button class="addTodoBtn">+</button>
+      <div class='addTodo'>
+        <input type="text" class="todoInput" />
+        <button class="addTodoBtn">+</button>
+      </div>
       <ul class="todoList"></ul>
     `
 
