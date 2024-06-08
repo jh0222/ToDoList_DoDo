@@ -1,7 +1,7 @@
 import completenessStore from "../store/completeness";
 import todoStore from "../store/todo";
 
-export default completeness = () => {
+export default formatCompleteness = () => {
   const currentDate = todoStore.state.date
   let isCheckedCnt = 0
   let totalTodos = 0

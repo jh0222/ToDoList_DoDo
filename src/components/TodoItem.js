@@ -1,6 +1,6 @@
 import { Component } from "../core/core";
 import todoStore from "../store/todo";
-import completeness from "../utils/completeness";
+import completeness from "../utils/formatCompleteness";
 
 
 export default class TodoItem extends Component {

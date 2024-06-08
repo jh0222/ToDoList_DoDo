@@ -1,6 +1,6 @@
 import { Component } from "../core/core";
 import todoStore from "../store/todo";
-import completeness from "../utils/completeness";
+import completeness from "../utils/formatCompleteness";
 import { updateDateTodo } from "../utils/todoList";
 
 export default class TodoPlus extends Component {  
