@@ -1,15 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html {
-  --color-white-50: rgba(255,255,255,.5);
-  --color-white-30: rgba(255,255,255,.3);
-  --color-white-20: rgba(255,255,255,.2);
-  --color-white-10: rgba(255,255,255,.1);
-  --color-white-5: rgba(255,255,255,.05);
   --color-primary: #a7a8ff71;
   --color-hover: #8b73e2;
-  --color-area: #1C212E;
+  --color-area: #fcf6ff;
 }
+
 body {
-  background-color: var(--color-black);
+  background-color: var(--color-area);
   font-family: 'Roboto', sans-serif;
   line-height: 1.4;
   color: var(--color-white);
@@ -31,9 +32,17 @@ body {
   font-size: 18px;
   padding: 10px 20px;
 }
+
 header a {
   text-decoration: none;
   margin-right: 10px;
+  transition: box-shadow 0.3s;
+}
+header a:hover {
+  text-shadow: 0 0 5px var(--color-hover);
+}
+header a.active {
+  text-shadow: 0 0 5px var(--color-hover);
 }
 
 .container {
@@ -41,8 +50,7 @@ header a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  /* margin: 20px 0; */
   padding: 0 20px;
 }
 
@@ -53,7 +61,7 @@ header a {
   color: var(--color-white);
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 10px 0;
 }
 
 .date a {
@@ -66,29 +74,37 @@ header a {
 
 .todoDate {
   min-height: 300px;
+  max-width: 350px;
 }
 
 .addTodo {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .todoInput {
   width: 300px;
   height: 30px;
   margin-right: 10px; 
+  border: 1px solid black;
   border-radius: 10px;
   font-size: 20px;
 }
 
 .addTodoBtn {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: var(--color-hover);
   color: white;
   border: none;
   font-size: 30px;
   border-radius: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.1s;
+}
+.addTodoBtn:hover {
+  box-shadow: 0 0 5px var(--color-hover); /* hover 시 그림자 효과 추가 */
 }
 
 .todoList {
@@ -97,14 +113,20 @@ header a {
   font-size: 18px;
 }
 
-.todoText {
-  
+.todoList li {
+  border-bottom: 0.5px solid rgb(209, 209, 209);
 }
 
 .deleteTodo {
-   cursor: pointer;
-   float: right;
-   color: var(--color-hover);
+  cursor: pointer;
+  float: right;
+  color: var(--color-hover);
+  font-weight: 600;
+  margin-left: 5px;
+  transition: color 0.1s;
+}
+.deleteTodo:hover {
+  color: var(--color-primary); /* 호버 시 링크 색상 변경 */
 }
 
 .completed {
@@ -122,6 +144,7 @@ header a {
   border: 1px solid #000;
   border-radius: 15;
   box-shadow: 5px 5px var(--color-area);
+  background-color: white;
 }
 
 .week-row {
@@ -140,6 +163,12 @@ header a {
   border: none;
 }
 
+.week-row li {
+  font-size: 12px;
+  margin-bottom: 5px;
+  border-bottom: 0.5px solid rgb(209, 209, 209);
+}
+
 .week-day {
   font-size: 15px;
   text-align: center;
@@ -148,6 +177,7 @@ header a {
 
 .month {
   display: table;
+  background-color: white;
   border-radius: 15;
   box-shadow: 5px 5px var(--color-area);
 }
@@ -192,11 +222,18 @@ header a {
   border-radius: 0 0 15px 15px;
 }
 
+
+
 .day {
   width: 150px;
   min-height: 100px;
   border-left: 1px solid #000;
   /* border-right: 1px solid #000; */
+}
+
+.day .todoList li {
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 .day h3 {
@@ -214,4 +251,24 @@ header a {
 
 .week:last-child .day:last-child {
   border-right: 1px solid #000;
+}
+
+footer {
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+footer a {
+  color: var(--color-hover);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-size: 20px;
+  font-weight: 500;
+}
+footer a:hover {
+  color: var(--color-primary); /* 호버 시 링크 색상 변경 */
 }
