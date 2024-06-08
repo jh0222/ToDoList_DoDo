@@ -8,6 +8,7 @@ html {
   --color-primary-dark: #7644b6;
   --color-primary-light: #a7a8ff71;
   --color-area: #fcf6ff;
+  --color-shadow: #88848a;
 }
 
 body {
@@ -143,7 +144,7 @@ header a.active {
   display: flex;
   border: 1px solid #000;
   border-radius: 15;
-  box-shadow: 5px 5px var(--color-area);
+  box-shadow: 5px 5px var(--color-shadow);
   background-color: white;
 }
 
@@ -175,11 +176,22 @@ header a.active {
   margin-bottom: 15px;
 }
 
+@media (max-width: 720px) {
+  .week-table {
+    display: grid;
+  }
+  .week-row {
+    width: 230px;
+    height: 150px;
+    border: none;
+  }
+}
+
 .month {
   display: table;
   background-color: white;
   border-radius: 15;
-  box-shadow: 5px 5px var(--color-area);
+  box-shadow: 5px 5px var(--color-shadow);
 }
 
 .month-table {
@@ -222,8 +234,6 @@ header a.active {
   border-radius: 0 0 15px 15px;
 }
 
-
-
 .day {
   width: 150px;
   min-height: 100px;
@@ -251,6 +261,34 @@ header a.active {
 
 .week:last-child .day:last-child {
   border-right: 1px solid #000;
+}
+
+@media (max-width: 768px) {
+  .month-row, .day {
+    width: calc(100% / 7); /* 화면 너비를 기준으로 칸 너비 설정 */
+  }
+
+  .month-row {
+    font-size: 10px; /* 폰트 크기 축소 */
+    height: 30px; /* 행 높이 축소 */
+  }
+
+  .day {
+    padding: 0 5px;
+    min-height: 60px; /* 최소 높이 축소 */
+  }
+
+  .day h3 {
+    font-size: 12px; /* 폰트 크기 축소 */
+  }
+
+  .day .todoList li {
+    font-size: 8px; /* 폰트 크기 축소 */
+  }
+
+  .day .todoList li input, .deleteTodo {
+    display: none; /* 폰트 크기 축소 */
+  }
 }
 
 footer {
