@@ -274,14 +274,14 @@ header a.active {
   }
 
   .day {
-    padding: 0 20px;
     min-height: 60px; /* 최소 높이 축소 */
   }
 
   .day h3 {
+    margin: 0 18px;
     font-size: 12px; /* 폰트 크기 축소 */
   }
-
+    
   .day .todoList li {
     font-size: 8px; /* 폰트 크기 축소 */
   }
